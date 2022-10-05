@@ -31,12 +31,13 @@ public class Base {
 
     private final Properties initialProperties = new Properties();
 
-    private final static String url = "https://" + System.getProperty("url");
+//    private final static String url = "https://" + System.getProperty("url");
+    private final static String url = "https://academybugs.com";
 
     public ChromeDriver initializeDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(true);
+//        options.setHeadless(true);
         options.addArguments("--no-sandbox");
         options.addArguments("start-maximized");
         options.addArguments("--disable-dev-shm-usage");
