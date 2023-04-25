@@ -98,6 +98,7 @@
                         <browser>${browser}</browser>
                         <url>${url}</url>
                         <testsType>${testsType}</testsType>
+                        <setHeadless>${setHeadless}</setHeadless>
                     </systemPropertyVariables>
                     <systemProperties>
                         <property>
@@ -111,6 +112,10 @@
                         <property>
                             <name>testsType</name>
                             <value>${testsType}</value>
+                        </property>
+                        <property>
+                            <name>setHeadless</name>
+                            <value>${setHeadless}</value>
                         </property>
                         <property>
                             <name>allure.results.directory</name>

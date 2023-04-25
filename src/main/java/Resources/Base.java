@@ -27,42 +27,32 @@ public class Base {
 
     private static ChromeDriver driver;
 
-    private static AppMainMethods appMainMethods;
+    private AppMainMethods appMainMethods;
 
     private final Properties initialProperties = new Properties();
 
-//    private final static String url = "https://" + System.getProperty("url");
-    private final static String url = "https://academybugs.com";
+    private final static String url = "https://" + System.getProperty("url");
+//    private final static String url = "https://academybugs.com";
 
     public ChromeDriver initializeDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-//        options.setHeadless(true);
+        options.setHeadless(Boolean.parseBoolean(System.getProperty("setHeadless")));
         options.addArguments("--no-sandbox");
         options.addArguments("start-maximized");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--remote-allow-origins=*");
         return new ChromeDriver(options);
-    }
-
-    public Credentials chooseUser() throws IOException {
-
-        final FileInputStream propertiesFile = new FileInputStream("src/main/java/Resources/data.properties");
-        initialProperties.load(propertiesFile);
-        UserRole userType = UserRole.valueOf(initialProperties.getProperty("user").toUpperCase());
-
-        String pass = initialProperties.getProperty(userType.name().toLowerCase() + ".password");
-        String email = initialProperties.getProperty(userType.name().toLowerCase() + ".email");
-        return new Credentials(email, pass);
-
     }
 
     @BeforeSuite
     public void logIn() {
 
         driver = initializeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        JSWaiter.setDriver(driver);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+//        dynamic waiter is useful for angular applications
+//        JSWaiter.setDriver(driver);
 
         driver.get(url);
 
