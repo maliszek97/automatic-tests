@@ -1,20 +1,17 @@
 package main.java.AppMethods;
 
-import java.awt.*;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import io.qameta.allure.Step;
 import main.java.AppDomElements.DomElement;
 import main.java.Resources.Base;
-import main.java.Resources.JSWaiter;
-import main.java.pageObjects.PageUrl;
+import main.java.PageObjects.PageUrl;
 import org.openqa.selenium.*;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v103.network.Network;
 import org.openqa.selenium.devtools.v103.network.model.RequestId;
 import org.openqa.selenium.devtools.v103.network.model.Response;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.pagefactory.ByChained;
 import org.openqa.selenium.support.ui.Select;
 
@@ -29,7 +26,7 @@ public class AppMainMethods {
     }
 
     @Step("Click {element.description}")
-    public void clickElement(DomElement element) throws InterruptedException {
+    public void clickElement(DomElement element) {
         element.webElement().click();
     }
 
@@ -44,7 +41,7 @@ public class AppMainMethods {
     }
 
     @Step("Click {element.description} with the '{attribute}' attribute with value '{attributeValue}'")
-    public void clickElementByAttribute(DomElement element, String attribute, String attributeValue) throws InterruptedException {
+    public void clickElementByAttribute(DomElement element, String attribute, String attributeValue) {
         Optional<WebElement> el = element
                 .webElements()
                 .stream()

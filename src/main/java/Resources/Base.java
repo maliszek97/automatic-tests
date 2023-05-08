@@ -29,7 +29,7 @@ public class Base {
 
     private AppMainMethods appMainMethods;
 
-    private final Properties initialProperties = new Properties();
+//    private final Properties initialProperties = new Properties();
 
     private final static String url = "https://" + System.getProperty("url");
 //    private final static String url = "https://academybugs.com";
@@ -50,9 +50,6 @@ public class Base {
 
         driver = initializeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-//        dynamic waiter is useful for angular applications
-//        JSWaiter.setDriver(driver);
 
         driver.get(url);
 

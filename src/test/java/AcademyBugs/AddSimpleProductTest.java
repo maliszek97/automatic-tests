@@ -5,7 +5,7 @@ import main.java.AppDomElements.ProductCardDomElements;
 import main.java.Resources.Base;
 import main.java.Resources.Listeners;
 import main.java.Resources.Pair;
-import main.java.pageObjects.PageUrls;
+import main.java.PageObjects.PageUrls;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
